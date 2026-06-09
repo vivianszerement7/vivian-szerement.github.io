@@ -1,0 +1,5 @@
+Executive Summary: Interactive Cobot Vision Control
+--------------------------------------------------
+Project Context: Development of a gesture-controlled interactive robot demonstrator using computer vision.
+
+This project involved programming a Doosan M0609 collaborative robot to react to human gestures in real-time. I utilized Python along with OpenCV and Google Mediapipe for robust hand-tracking and gesture recognition. The system architecture relied on a TCP/IP client-server model to ensure low-latency communication between the vision processing node and the robot controller, enabling a fluid "interactive mime" experience.

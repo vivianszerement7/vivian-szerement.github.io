@@ -1,0 +1,5 @@
+Executive Summary: Motor Suspension Modal Analysis
+--------------------------------------------------
+Project Context: Experimental and numerical study to analyze and correlate the resonant frequencies of a suspended motor system.
+
+I conducted a comprehensive vibratory mechanics study focusing on a motor mounted on elastomer supports. Experimental modal analysis (using FFTs) was performed to find the system's natural frequencies. These results were then used for "Model Updating" in Abaqus MDSA, adjusting the simulated elastomer stiffness parameters until the numerical model perfectly correlated with the real-world physical behavior.

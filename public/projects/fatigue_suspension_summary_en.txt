@@ -1,0 +1,5 @@
+Executive Summary: Automotive Suspension Fatigue
+--------------------------------------------------
+Project Context: Fatigue life validation of a Citroën C3 suspension arm to ensure automotive safety standards.
+
+This critical safety analysis involved determining the fatigue limits of a HR60 steel suspension triangle. I employed the Dang Van multiaxial fatigue criterion alongside Basquin's law to predict the component's lifespan under cyclic loading. The theoretical calculations were corroborated using Abaqus FEA simulations to identify the exact initiation points for potential micro-cracks.

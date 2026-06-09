@@ -1,0 +1,5 @@
+Executive Summary: Forklift Ventilation Electrification
+--------------------------------------------------
+Project Context: Technical and economic feasibility study of replacing a hydraulic ventilation system with an electric one on a Manitou forklift.
+
+This industrial project analyzed the Manitou MC 25-4 forklift. I compared the existing Vivolo XV-2M hydraulic system against a proposed Brushless motor alternative. The study required modeling the cooling requirements, designing a PWM regulation strategy for the electric motor, and performing a detailed cost-benefit analysis. The electric integration proved to offer better efficiency and noise reduction.

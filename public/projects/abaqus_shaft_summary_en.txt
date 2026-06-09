@@ -1,0 +1,5 @@
+Executive Summary: Shaft Optimization via FEA
+--------------------------------------------------
+Project Context: Finite element analysis of a rotating transmission shaft to optimize diameter while maintaining structural integrity.
+
+Using Abaqus, I conducted a rigorous structural analysis on a mechanical shaft. The study focused heavily on mesh sensitivity to ensure the accuracy of the results. By evaluating stress concentrations using Von Mises and Tresca yield criteria, I was able to propose an optimized shaft diameter that reduced weight without compromising the safety factor under maximum load.
