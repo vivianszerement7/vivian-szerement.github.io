@@ -1,38 +1,55 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Folder, FileCode, ExternalLink } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import type { Project } from '../data/projects';
 
 interface ProjectCardProps {
   project: Project;
+  onClick: (project: Project) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const getIcon = () => {
-    switch (project.type) {
-      case 'folder': return <Folder className="text-blue-400" size={32} />;
-      case 'docx': return <FileCode className="text-blue-400" size={32} />;
-      default: return <FileText className="text-blue-400" size={32} />;
-    }
-  };
-
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
   return (
     <motion.div 
-      whileHover={{ y: -10 }}
-      className="bg-slate-800/50 border border-slate-700 p-6 rounded-2xl flex flex-col h-full"
+      whileHover={{ y: -5 }}
+      className="group cursor-pointer bg-slate-800/30 border border-slate-700/50 rounded-2xl overflow-hidden flex flex-col h-full transition-all hover:bg-slate-800/80 hover:border-slate-600 hover:shadow-xl hover:shadow-blue-500/10"
+      onClick={() => onClick(project)}
     >
-      <div className="mb-4">{getIcon()}</div>
-      <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-      <p className="text-slate-400 mb-6 flex-grow">{project.description}</p>
-      
-      <a 
-        href={project.filePath}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors mt-auto"
-      >
-        {project.type === 'folder' ? 'View Directory' : 'View Document'} <ExternalLink size={16} />
-      </a>
+      <div className="h-48 w-full overflow-hidden relative">
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors duration-500" />
+      </div>
+
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex flex-wrap gap-2 mb-3">
+          {project.tags.slice(0, 3).map(tag => (
+            <span key={tag} className="text-xs font-medium text-blue-400 bg-blue-400/10 px-2 py-1 rounded-md">
+              {tag}
+            </span>
+          ))}
+          {project.tags.length > 3 && (
+            <span className="text-xs font-medium text-slate-400 bg-slate-400/10 px-2 py-1 rounded-md">
+              +{project.tags.length - 3}
+            </span>
+          )}
+        </div>
+
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-slate-400 text-sm line-clamp-3 mb-6 flex-grow">
+          {project.context}
+        </p>
+        
+        <div className="flex items-center text-sm font-semibold text-white mt-auto group-hover:text-blue-400 transition-colors">
+          <span>Read Case Study</span>
+          <ChevronRight size={16} className="ml-1 transform group-hover:translate-x-1 transition-transform" />
+        </div>
+      </div>
     </motion.div>
   );
 };
