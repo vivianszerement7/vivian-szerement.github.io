@@ -5,8 +5,8 @@ export interface Project {
   explanation: string;
   visualDescription: string;
   category: 'Robotics and Code' | 'Materials and Conception';
-  filePath: string;
-  type: 'pdf' | 'docx' | 'folder' | 'zip';
+  filePath?: string;
+  type: 'pdf' | 'docx' | 'folder' | 'zip' | 'none';
   tags: string[];
   image: string;
 }
@@ -79,8 +79,7 @@ export const projects: Project[] = [
     explanation: 'This industrial project analyzed the Manitou MC 25-4 forklift. I compared the existing Vivolo XV-2M hydraulic system against a proposed Brushless motor alternative. The study required modeling the cooling requirements, designing a PWM regulation strategy for the electric motor, and performing a detailed cost-benefit analysis. The electric integration proved to offer better efficiency and noise reduction.',
     visualDescription: 'A comparative efficiency graph between hydraulic and electric systems, alongside a schematic of the proposed PWM brushless regulation circuit.',
     category: 'Materials and Conception',
-    filePath: '/vivian-szerement.github.io/projects/Projet Industriel Ventilation livrable 3.pdf',
-    type: 'pdf',
+    type: 'none',
     tags: ['Systems Engineering', 'Brushless Motors', 'Hydraulics', 'Manitou'],
     image: 'https://images.unsplash.com/photo-1504917595217-d4ce5eb3e212?auto=format&fit=crop&q=80&w=800'
   },
@@ -115,8 +114,7 @@ export const projects: Project[] = [
     explanation: 'This project culminated in a detailed technical manual for assembling a multi-stage reduction winch. The core of the engineering work focused on the complex epicyclic (planetary) gear train and the splined shaft interfaces. I detailed the tolerances, assembly sequence, and mechanical interactions required to reliably transfer power from the motor to the lifting drum.',
     visualDescription: 'An exploded isometric CAD view of the epicyclic gear train, detailing the sun gear, planetary gears, and ring gear assembly.',
     category: 'Materials and Conception',
-    filePath: '/vivian-szerement.github.io/projects/Notice d.pdf',
-    type: 'pdf',
+    type: 'none',
     tags: ['CAD', 'Gear Trains', 'Assembly', 'Mechanical Engineering'],
     image: 'https://images.unsplash.com/photo-1611078696879-111005fbc530?auto=format&fit=crop&q=80&w=800'
   }
