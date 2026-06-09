@@ -33,10 +33,10 @@ const Hero: React.FC = () => {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <a 
-            href="#robotics"
+            href="#about"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-all transform hover:scale-105"
           >
-            Explore Projects <ArrowDown size={20} />
+            Discover More <ArrowDown size={20} />
           </a>
         </motion.div>
       </div>

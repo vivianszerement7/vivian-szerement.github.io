@@ -14,8 +14,9 @@ const Navbar: React.FC = () => {
             VS <span className="text-blue-500">Portfolio</span>
           </motion.div>
           <div className="hidden md:flex space-x-8">
-            <a href="#robotics" className="text-slate-300 hover:text-white transition-colors">Robotics & Code</a>
-            <a href="#materials" className="text-slate-300 hover:text-white transition-colors">Materials & Conception</a>
+            <a href="#about" className="text-slate-300 hover:text-white transition-colors font-medium">About Me</a>
+            <a href="#robotics" className="text-slate-300 hover:text-white transition-colors font-medium">Robotics & Code</a>
+            <a href="#materials" className="text-slate-300 hover:text-white transition-colors font-medium">Materials & Conception</a>
           </div>
         </div>
       </div>

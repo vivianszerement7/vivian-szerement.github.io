@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
 import Section from './components/Section';
 import ProjectModal from './components/ProjectModal';
 import { projects, type Project } from './data/projects';
@@ -26,6 +27,7 @@ const App: React.FC = () => {
       <Navbar />
       <main>
         <Hero />
+        <About />
         <Section 
           id="robotics" 
           title="Robotics and Code" 
