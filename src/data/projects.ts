@@ -7,7 +7,6 @@ export interface Project {
   category: 'Robotics and Code' | 'Materials and Conception';
   filePath?: string;
   type: 'pdf' | 'docx' | 'folder' | 'zip' | 'none';
-  summaryPath?: string;
   tags: string[];
   image: string;
 }
@@ -22,7 +21,6 @@ export const projects: Project[] = [
     category: 'Robotics and Code',
     filePath: '/vivian-szerement.github.io/projects/Rapport_Vision_Robotique.pdf',
     type: 'pdf',
-    summaryPath: '/vivian-szerement.github.io/projects/cobot_vision_summary_en.txt',
     tags: ['Python', 'OpenCV', 'Mediapipe', 'Doosan M0609', 'TCP/IP'],
     image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800'
   },

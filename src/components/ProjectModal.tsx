@@ -70,19 +70,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               </p>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-slate-800 flex flex-wrap justify-end gap-4">
-              {project.summaryPath && (
-                <a 
-                  href={project.summaryPath}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <FileText size={18} />
-                  <span>Read English Summary</span>
-                </a>
-              )}
-              {project.filePath && (
+            {project.filePath && (
+              <div className="mt-8 pt-6 border-t border-slate-800 flex justify-end">
                 <a 
                   href={project.filePath}
                   target="_blank"
@@ -90,11 +79,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   {getIcon()}
-                  <span>View Original Document (FR)</span>
+                  <span>View Original Document</span>
                   <ExternalLink size={18} />
                 </a>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </motion.div>

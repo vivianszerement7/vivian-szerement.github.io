@@ -1,5 +1,0 @@
-Executive Summary: Dijkstra Pathfinding in 3D CAD
---------------------------------------------------
-Project Context: First-year algorithmic project implementing automated pathfinding with 3D visualization.
-
-I developed a pathfinding solver using Dijkstra's algorithm written entirely in Python. To bridge the gap between abstract algorithms and tangible engineering, I integrated the Python logic directly with FreeCAD using FCMacro. This allowed the calculated optimal paths to be visualized automatically within a 3D CAD environment, demonstrating strong software-to-CAD integration skills.

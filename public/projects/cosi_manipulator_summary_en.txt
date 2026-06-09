@@ -1,5 +1,0 @@
-Executive Summary: Industrial Manipulator Design
---------------------------------------------------
-Project Context: Preliminary design and sizing of a workshop manipulator for industrial applications.
-
-As part of the COSI project, I led the architectural comparison between parallelogram and articulated arm designs for a material handling manipulator. The methodology involved rigorous kinematic analysis (using Al-Kashi theorem) and mechanical sizing of key components, including lead screws and plain bearings, to ensure the structure could handle the required payload safely and precisely.

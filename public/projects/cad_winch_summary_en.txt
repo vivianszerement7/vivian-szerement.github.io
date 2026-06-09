@@ -1,5 +1,0 @@
-Executive Summary: 8T Electric Winch Assembly
---------------------------------------------------
-Project Context: CAD assembly manual and dimensioning guide for a heavy-duty 8-ton electric winch system.
-
-This project culminated in a detailed technical manual for assembling a multi-stage reduction winch. The core of the engineering work focused on the complex epicyclic (planetary) gear train and the splined shaft interfaces. I detailed the tolerances, assembly sequence, and mechanical interactions required to reliably transfer power from the motor to the lifting drum.

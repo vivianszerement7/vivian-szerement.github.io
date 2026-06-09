@@ -1,5 +1,0 @@
-Executive Summary: Cold Extrusion Material Simulation
---------------------------------------------------
-Project Context: Numerical simulation study for WALOR to predict material properties during cold extrusion.
-
-I utilized FORGE NxT simulation software to model the severe plastic deformation of 20MnCr5 steel during a cold extrusion process. The objective was to accurately predict the resulting material hardness (Vickers hardness) post-deformation. This involved setting up complex boundary conditions, modeling die friction, and analyzing the resulting strain distribution to optimize the manufacturing process parameters.
