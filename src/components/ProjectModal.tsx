@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, X, FileText, Folder, FileCode } from 'lucide-react';
 import type { Project } from '../data/projects';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
 
 interface ProjectModalProps {
   project: Project;
@@ -9,6 +11,9 @@ interface ProjectModalProps {
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  const { language } = useLanguage();
+  const t = translations[language].modal;
+
   const getIcon = () => {
     switch (project.type) {
       case 'folder': case 'zip': return <Folder className="text-blue-400" size={24} />;
@@ -40,7 +45,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           <div className="h-64 sm:h-80 w-full relative">
             <img 
               src={project.image} 
-              alt={project.title} 
+              alt={project.title[language]} 
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
@@ -55,18 +60,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               ))}
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">{project.title}</h2>
-            <p className="text-xl text-blue-400 mb-8 font-medium">{project.context}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">{project.title[language]}</h2>
+            <p className="text-xl text-blue-400 mb-8 font-medium">{project.context[language]}</p>
 
             <div className="prose prose-invert max-w-none">
-              <h3 className="text-white text-xl font-semibold mb-3 border-b border-slate-700 pb-2">Technical Overview</h3>
+              <h3 className="text-white text-xl font-semibold mb-3 border-b border-slate-700 pb-2">{t.techOverview}</h3>
               <p className="text-slate-300 leading-relaxed mb-8">
-                {project.explanation}
+                {project.explanation[language]}
               </p>
 
-              <h3 className="text-white text-xl font-semibold mb-3 border-b border-slate-700 pb-2">Visual Highlight</h3>
+              <h3 className="text-white text-xl font-semibold mb-3 border-b border-slate-700 pb-2">{t.visualHighlight}</h3>
               <p className="text-slate-400 italic mb-8 border-l-4 border-slate-700 pl-4">
-                "{project.visualDescription}"
+                "{project.visualDescription[language]}"
               </p>
             </div>
 
@@ -79,7 +84,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   {getIcon()}
-                  <span>View Original Document</span>
+                  <span>{t.viewOriginal}</span>
                   <ExternalLink size={18} />
                 </a>
               </div>

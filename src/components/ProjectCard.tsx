@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import type { Project } from '../data/projects';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
 
 interface ProjectCardProps {
   project: Project;
@@ -9,6 +11,9 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
+  const { language } = useLanguage();
+  const t = translations[language].projectCard;
+
   return (
     <motion.div 
       whileHover={{ y: -5 }}
@@ -18,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
       <div className="h-48 w-full overflow-hidden relative">
         <img 
           src={project.image} 
-          alt={project.title} 
+          alt={project.title[language]} 
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors duration-500" />
@@ -39,14 +44,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
         </div>
 
         <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-          {project.title}
+          {project.title[language]}
         </h3>
         <p className="text-slate-400 text-sm line-clamp-3 mb-6 flex-grow">
-          {project.context}
+          {project.context[language]}
         </p>
         
         <div className="flex items-center text-sm font-semibold text-white mt-auto group-hover:text-blue-400 transition-colors">
-          <span>Read Case Study</span>
+          <span>{t.readCaseStudy}</span>
           <ChevronRight size={16} className="ml-1 transform group-hover:translate-x-1 transition-transform" />
         </div>
       </div>

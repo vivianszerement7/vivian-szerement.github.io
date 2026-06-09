@@ -1,8 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
 
 const Hero: React.FC = () => {
+  const { language } = useLanguage();
+  const t = translations[language].hero;
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
       <div className="absolute inset-0 z-0">
@@ -25,7 +30,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-10"
         >
-          Engineering student specializing in Robotics, Code, and Mechanical Conception.
+          {t.subtitle}
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}
@@ -36,7 +41,7 @@ const Hero: React.FC = () => {
             href="#about"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-all transform hover:scale-105"
           >
-            Discover More <ArrowDown size={20} />
+            {t.discover} <ArrowDown size={20} />
           </a>
         </motion.div>
       </div>
