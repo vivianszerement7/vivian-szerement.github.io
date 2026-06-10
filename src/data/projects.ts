@@ -3,7 +3,13 @@ export interface Project {
   title: { en: string; fr: string; };
   context: { en: string; fr: string; };
   explanation: { en: string; fr: string; };
-  visualDescription: { en: string; fr: string; };
+  visualDescription: { 
+    en: string; 
+    fr: string; 
+    image?: string; 
+    images?: string[]; // Added support for multiple images
+    video?: string; 
+  };
   category: 'Robotics and Code' | 'Materials and Conception';
   filePath?: string;
   type: 'pdf' | 'docx' | 'folder' | 'zip' | 'none';
@@ -23,18 +29,20 @@ export const projects: Project[] = [
       fr: 'Développement d\'un démonstrateur robotique interactif contrôlé par les gestes grâce à la vision par ordinateur.' 
     },
     explanation: { 
-      en: 'This project involved programming a Doosan M0609 collaborative robot to react to human gestures in real-time. I utilized Python along with OpenCV and Google Mediapipe for robust hand-tracking and gesture recognition. The system architecture relied on a TCP/IP client-server model to ensure low-latency communication between the vision processing node and the robot controller, enabling a fluid "interactive mime" experience.', 
-      fr: 'Ce projet a impliqué la programmation d\'un robot collaboratif Doosan M0609 pour réagir aux gestes humains en temps réel. J\'ai utilisé Python avec OpenCV et Google Mediapipe pour un suivi robuste des mains et la reconnaissance des gestes. L\'architecture du système reposait sur un modèle client-serveur TCP/IP pour assurer une communication à faible latence entre le nœud de traitement de la vision et le contrôleur du robot, permettant une expérience fluide de "mime interactif".' 
+      en: 'This project involved programming a Doosan M0609 collaborative robot to reproduce the displacement of the hands palm in real-time. I utilized Python along with OpenCV and Google Mediapipe for robust hand-tracking and gesture recognition. The system architecture relied on a TCP/IP client-server model to ensure low-latency communication between the vision processing node and the robot controller, enabling a fluid "interactive mime" experience. Indeed, this project must be interactive and interesting to be appealing to children', 
+      fr: 'Ce projet a impliqué la programmation d\'un robot collaboratif Doosan M0609 pour reproduire le déplacement de la paume de main en temps réel. J\'ai utilisé Python avec OpenCV et Google Mediapipe pour un suivi robuste des mains et la reconnaissance des gestes. L\'architecture du système reposait sur un modèle client-serveur TCP/IP pour assurer une communication à faible latence entre le nœud de traitement de la vision et le contrôleur du robot, permettant une expérience fluide de "mime interactif". En effet, ce projet doit être suffisamment intéractif pour plaire aux enfants.' 
     },
     visualDescription: { 
       en: 'A flowchart showing the TCP/IP communication architecture and a camera feed overlay with Mediapipe hand-tracking nodes.', 
-      fr: 'Un organigramme montrant l\'architecture de communication TCP/IP et une superposition de flux de caméra avec les nœuds de suivi des mains Mediapipe.' 
+      fr: 'Un organigramme montrant l\'architecture de communication TCP/IP et une superposition de flux de caméra avec les nœuds de suivi des mains Mediapipe.',
+      image : '/vivian-szerement.github.io/projects/illustration organigramme projot robot mime.png',
+      video : '/vivian-szerement.github.io/projects/robot-mime-demo.mov'
     },
     category: 'Robotics and Code',
     filePath: '/vivian-szerement.github.io/projects/Rapport_Vision_Robotique.pdf',
     type: 'pdf',
     tags: ['Python', 'OpenCV', 'Mediapipe', 'Doosan M0609', 'TCP/IP'],
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800'
+    image: '/vivian-szerement.github.io/projects/illustration organigramme projot robot mime.png'
   },
   {
     id: 'robotics-skeleton',
@@ -52,13 +60,14 @@ export const projects: Project[] = [
     },
     visualDescription: { 
       en: 'A 3D FreeCAD viewport showing a generated optimal path connecting two nodes across a complex modeled environment.', 
-      fr: 'Une fenêtre de visualisation 3D FreeCAD montrant un chemin optimal généré reliant deux nœuds à travers un environnement modélisé complexe.' 
+      fr: 'Une fenêtre de visualisation 3D FreeCAD montrant un chemin optimal généré reliant deux nœuds à travers un environnement modélisé complexe.',
+      image: '/vivian-szerement.github.io/projects/FreeCad_illustration.png' 
     },
     category: 'Robotics and Code',
     filePath: '/vivian-szerement.github.io/projects/1A-info-projet-squelette.zip',
     type: 'zip',
     tags: ['Python', 'Dijkstra', 'FreeCAD', 'Algorithms'],
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=800'
+    image: '/vivian-szerement.github.io/projects/FreeCad_illustration.png'
   },
   {
     id: 'abaqus-fea',
@@ -76,13 +85,14 @@ export const projects: Project[] = [
     },
     visualDescription: { 
       en: 'A high-resolution Abaqus heatmap showing the Von Mises stress concentration gradient along the shaft, particularly near the bearing supports.', 
-      fr: 'Une carte de chaleur haute résolution Abaqus montrant le gradient de concentration de contraintes de Von Mises le long de l\'arbre, en particulier près des supports de palier.' 
+      fr: 'Une carte de chaleur haute résolution Abaqus montrant le gradient de concentration de contraintes de Von Mises le long de l\'arbre, en particulier près des supports de palier.',
+      image: '/vivian-szerement.github.io/projects/abaqus_fea.png'
     },
     category: 'Materials and Conception',
     filePath: '/vivian-szerement.github.io/projects/Compte_Rendu_Abaqus_Martin_Szerement_Destrade.pdf',
     type: 'pdf',
     tags: ['Abaqus', 'FEA', 'Optimization', 'Von Mises'],
-    image: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80&w=800'
+    image: '/vivian-szerement.github.io/projects/abaqus_fea.png'
   },
   {
     id: 'fatigue-testing',
@@ -100,13 +110,14 @@ export const projects: Project[] = [
     },
     visualDescription: { 
       en: 'A stress-life (S-N) curve plot and an Abaqus simulation overlay highlighting the critical fatigue initiation zone on the suspension arm.', 
-      fr: 'Un graphique de courbe contrainte-durée de vie (S-N) et une superposition de simulation Abaqus mettant en évidence la zone critique d\'initiation de la fatigue sur le bras de suspension.' 
+      fr: 'Un graphique de courbe contrainte-durée de vie (S-N) et une superposition de simulation Abaqus mettant en évidence la zone critique d\'initiation de la fatigue sur le bras de suspension.',
+      image: '/vivian-szerement.github.io/projects/fatigue_testing.png'
     },
     category: 'Materials and Conception',
     filePath: '/vivian-szerement.github.io/projects/TP_FATIGUE_SZEREMENT_BREMOND (2).pdf',
     type: 'pdf',
     tags: ['Fatigue Analysis', 'Dang Van', 'Abaqus', 'HR60 Steel'],
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800'
+    image: '/vivian-szerement.github.io/projects/fatigue_testing.png'
   },
   {
     id: 'copa-simulations',
@@ -124,13 +135,14 @@ export const projects: Project[] = [
     },
     visualDescription: { 
       en: 'A cross-sectional simulation view from FORGE NxT displaying the equivalent plastic strain and predicted Vickers hardness gradient.', 
-      fr: 'Une vue de simulation en coupe transversale de FORGE NxT affichant la déformation plastique équivalente et le gradient de dureté Vickers prédit.' 
+      fr: 'Une vue de simulation en coupe transversale de FORGE NxT affichant la déformation plastique équivalente et le gradient de dureté Vickers prédit.',
+      image: '/vivian-szerement.github.io/projects/Cold_extrusion_Material.png'
     },
     category: 'Materials and Conception',
     filePath: '/vivian-szerement.github.io/projects/Rapport_Copa_Simulations.pdf',
     type: 'pdf',
     tags: ['FORGE NxT', 'Cold Extrusion', 'Simulation', '20MnCr5'],
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800'
+    image: '/vivian-szerement.github.io/projects/Forge_nxt.jpg'
   },
   {
     id: 'ventilation-project',
@@ -148,12 +160,13 @@ export const projects: Project[] = [
     },
     visualDescription: { 
       en: 'A comparative efficiency graph between hydraulic and electric systems, alongside a schematic of the proposed PWM brushless regulation circuit.', 
-      fr: 'Un graphique comparatif d\'efficacité entre les systèmes hydrauliques et électriques, aux côtés d\'un schéma du circuit de régulation PWM brushless proposé.' 
+      fr: 'Un graphique comparatif d\'efficacité entre les systèmes hydrauliques et électriques, aux côtés d\'un schéma du circuit de régulation PWM brushless proposé.',
+      image: '/vivian-szerement.github.io/projects/hydraulics_.png'
     },
     category: 'Materials and Conception',
     type: 'none',
     tags: ['Systems Engineering', 'Brushless Motors', 'Hydraulics', 'Manitou'],
-    image: 'https://images.unsplash.com/photo-1504917595217-d4ce5eb3e212?auto=format&fit=crop&q=80&w=800'
+    image: '/vivian-szerement.github.io/projects/hydraulics_.png'
   },
   {
     id: 'vibratory-mechanics',
@@ -171,13 +184,14 @@ export const projects: Project[] = [
     },
     visualDescription: { 
       en: 'A Fast Fourier Transform (FFT) frequency spectrum graph aligned next to the first three vibration modes simulated in Abaqus.', 
-      fr: 'Un graphique de spectre de fréquences par Transformation de Fourier Rapide (FFT) aligné à côté des trois premiers modes de vibration simulés dans Abaqus.' 
+      fr: 'Un graphique de spectre de fréquences par Transformation de Fourier Rapide (FFT) aligné à côté des trois premiers modes de vibration simulés dans Abaqus.',
+      image: '/vivian-szerement.github.io/projects/vibratory_mechanics.jpg'
     },
     category: 'Materials and Conception',
     filePath: '/vivian-szerement.github.io/projects/TP_Mecanique_Vibratoire.pdf',
     type: 'pdf',
     tags: ['Modal Analysis', 'Vibrations', 'Abaqus MDSA', 'FFT'],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800'
+    image: '/vivian-szerement.github.io/projects/vibratory_mechanics.jpg'
   },
   {
     id: 'cosi-manipulator',
@@ -195,13 +209,14 @@ export const projects: Project[] = [
     },
     visualDescription: { 
       en: 'A kinematic skeleton diagram outlining the degrees of freedom and calculating the necessary lead screw actuation forces.', 
-      fr: 'Un diagramme de squelette cinématique décrivant les degrés de liberté et calculant les forces d\'actionnement de la vis mère nécessaires.' 
+      fr: 'Un diagramme de squelette cinématique décrivant les degrés de liberté et calculant les forces d\'actionnement de la vis mère nécessaires.',
+      image: '/vivian-szerement.github.io/projects/Manipulator_design.png'
     },
     category: 'Materials and Conception',
     filePath: '/vivian-szerement.github.io/projects/CR_Livrable3_COSI_GrB_2425-S2_B.pdf',
     type: 'pdf',
     tags: ['Mechanical Design', 'Kinematics', 'Sizing', 'COSI'],
-    image: 'https://images.unsplash.com/photo-1580982333465-98369527eb5b?auto=format&fit=crop&q=80&w=800'
+    image: '/vivian-szerement.github.io/projects/Manipulator_design.png'
   },
   {
     id: 'cad-winch',
@@ -214,16 +229,21 @@ export const projects: Project[] = [
       fr: 'Manuel d\'assemblage CAO et guide de dimensionnement pour un système de treuil électrique robuste de 8 tonnes.' 
     },
     explanation: { 
-      en: 'This project culminated in a detailed technical manual for assembling a multi-stage reduction winch. The core of the engineering work focused on the complex epicyclic (planetary) gear train and the splined shaft interfaces. I detailed the tolerances, assembly sequence, and mechanical interactions required to reliably transfer power from the motor to the lifting drum.', 
-      fr: 'Ce projet a abouti à un manuel technique détaillé pour l\'assemblage d\'un treuil de réduction à plusieurs étages. Le cœur du travail d\'ingénierie s\'est concentré sur le train d\'engrenages épicycloïdal (planétaire) complexe et les interfaces d\'arbre cannelé. J\'ai détaillé les tolérances, la séquence d\'assemblage et les interactions mécaniques requises pour transférer de manière fiable la puissance du moteur au tambour de levage.' 
+      en: 'This comprehensive mechanical engineering project involved the complete design and modeling of an 8-ton electric winch. I designed and modeled every component in CAD, focusing on a complex multi-stage epicyclic (planetary) gear train and splined shaft interfaces. The work included producing detailed technical drawings (tolerancing, fits) and culminated in a professional assembly manual detailing the mechanical interactions and assembly sequence required for reliable power transmission.', 
+      fr: 'Ce projet complet d\'ingénierie mécanique a porté sur la conception et la modélisation intégrale d\'un treuil électrique de 8 tonnes. J\'ai conçu et modélisé chaque pièce en CAO, en me concentrant sur un train d\'engrenages épicycloïdal (planétaire) à plusieurs étages et des interfaces d\'arbres cannelés. Le travail a inclus la réalisation de dessins techniques détaillés (tolérances, ajustements) et a abouti à un manuel d\'assemblage professionnel détaillant les interactions mécaniques et la séquence de montage nécessaires pour une transmission de puissance fiable.' 
     },
     visualDescription: { 
-      en: 'An exploded isometric CAD view of the epicyclic gear train, detailing the sun gear, planetary gears, and ring gear assembly.', 
-      fr: 'Une vue CAO isométrique éclatée du train d\'engrenages épicycloïdal, détaillant l\'assemblage de l\'engrenage planétaire, des engrenages satellites et de la couronne.' 
+      en: 'Detailed views of the epicyclic gear train assembly and the final 8T electric winch CAD model.', 
+      fr: 'Vues détaillées de l\'assemblage du train d\'engrenages épicycloïdal et du modèle CAO final du treuil électrique 8T.',
+      images: [
+        '/vivian-szerement.github.io/projects/train_epi.png',
+        '/vivian-szerement.github.io/projects/treuil_assemblage_arbre.png',
+        '/vivian-szerement.github.io/projects/treuil_complet.png'
+      ]
     },
     category: 'Materials and Conception',
     type: 'none',
     tags: ['CAD', 'Gear Trains', 'Assembly', 'Mechanical Engineering'],
-    image: 'https://images.unsplash.com/photo-1611078696879-111005fbc530?auto=format&fit=crop&q=80&w=800'
+    image: '/vivian-szerement.github.io/projects/treuil_complet.png'
   }
 ];

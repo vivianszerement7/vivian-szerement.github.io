@@ -73,6 +73,44 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               <p className="text-slate-400 italic mb-8 border-l-4 border-slate-700 pl-4">
                 "{project.visualDescription[language]}"
               </p>
+              
+              {/* Single Image Support (Legacy) */}
+              {project.visualDescription.image && !project.visualDescription.images && (
+                <div className="mb-4 rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50 shadow-lg p-2">
+                  <img 
+                    src={project.visualDescription.image} 
+                    alt="Visual Highlight illustration" 
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
+              )}
+
+              {/* Multiple Images Support */}
+              {project.visualDescription.images && (
+                <div className="grid grid-cols-1 gap-4 mb-4">
+                  {project.visualDescription.images.map((img, idx) => (
+                    <div key={idx} className="rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50 shadow-lg p-2">
+                      <img 
+                        src={img} 
+                        alt={`Visual Highlight illustration ${idx + 1}`} 
+                        className="w-full h-auto rounded-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {project.visualDescription.video && (
+                <div className="mb-8 rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50 shadow-lg p-2">
+                  <video 
+                    src={project.visualDescription.video} 
+                    controls 
+                    className="w-full h-auto rounded-lg"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              )}
             </div>
 
             {project.filePath && (
